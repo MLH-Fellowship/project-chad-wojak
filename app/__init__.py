@@ -8,4 +8,19 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html', title="MLH Fellow", url=os.getenv("URL"))
+    content = {
+        'title': 'My Portfolio',
+        'name': 'MLH Fellow',
+        'position': 'Software Engineer',
+        'url': os.getenv("URL"),
+        'socials': [{
+            'name': 'Github',
+            'url': 'https://github.com/MLH-Fellowship',
+            'icon': './static/img/social/github.svg'
+        }, {
+            'name': 'LinkedIn',
+            'url': 'https://www.linkedin.com/company/major-league-hacking/',
+            'icon': './static/img/social/linkedin.svg'
+        }]
+    }
+    return render_template('index.html', **content)
