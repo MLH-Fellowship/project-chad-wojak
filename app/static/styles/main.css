@@ -10,10 +10,39 @@ button {
 }
 
 body {
-  background-color: #f5f5f9;
+  background-color: #e9ebec;
   background-size: cover;
   width: auto;
   overflow-x: hidden;
   font-family: "Poppins", sans-serif;
   margin: 0px;
+}
+
+/* navbar */
+
+.nav-bar-wrapper {
+  margin-top: 4em;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  padding: 0.75em;
+  background-color: #fff;
+  border-radius: 1em;
+}
+
+.nav-bar > .nav-item {
+  border-radius: 0.5em;
+  padding: 1em 1.75em;
+  color: #19191b;
+  text-decoration: none;
+}
+
+.nav-bar > .nav-item.active {
+  background-color: #d7d7d7;
 }

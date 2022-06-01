@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta property="og:title" content="Personal Portfolio" />
+    <meta property="og:description" content="My Personal Portfolio" />
+    <meta property="og:url" content="{{ url }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;1,200&display=swap"
+      rel="stylesheet"
+    />
+    <link lang="sass" rel="stylesheet" href="./static/styles/main.css" />
+    <link lang="sass" rel="stylesheet" href="./static/styles/profile.css" />
+    <link rel="icon" href="./static/img/favicon.ico" type="image/x-icon" />
+    <title>{{ title }}</title>
+  </head>
+
+  <body>
+    <div class="profile">
+      <div class="profile-picture">
+        <img src="./static/img/logo.jpg" />
+      </div>
+      <div class="profile-description">
+        <h1 class="profile-name">{{ name }}</h1>
+        <p class="profile-position">{{ position }}</p>
+        <div class="socials">
+          {% for social in socials %}
+          <a class="socials-link" href="{{social.url}}" target="_blank">
+            <img src="{{social.icon}}" alt="{{social.name}}" />
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="nav-bar-wrapper">
+      <div class="nav-bar">
+        <a class="nav-item {{'active' if active_tab == 'about'}}" href="/about"
+          >About</a
+        >
+        <a
+          class="nav-item {{'active' if active_tab == 'education' }}"
+          href="/education"
+          >Education</a
+        >
+        <a
+          class="nav-item {{'active' if active_tab == 'hobbies' }}"
+          href="/hobbies"
+          >Hobbies</a
+        >
+        <a
+          class="nav-item {{'active' if active_tab == 'where-am-i' }}"
+          href="/where-am-i"
+          >Where Am I?</a
+        >
+      </div>
+    </div>
+    {% block content %}{% endblock %}
+  </body>
+</html>
