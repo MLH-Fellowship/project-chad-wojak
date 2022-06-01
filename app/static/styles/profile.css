@@ -9,11 +9,16 @@ profile-specific styles
   align-items: center;
   justify-content: center;
   gap: 2em;
+  margin-top: 4em;
 }
 
 .profile-picture {
-  width: 10em;
-  height: 10em;
+  width: 9em;
+  height: 9em;
+
+  border-radius: 50%;
+  border: 2px solid #f7d039;
+  padding: 6px;
 }
 
 .profile-picture > img {
@@ -24,6 +29,7 @@ profile-specific styles
 .profile-description {
   display: flex;
   flex-direction: column;
+  gap: 0.5em;
 }
 
 .profile-description > .profile-name {
