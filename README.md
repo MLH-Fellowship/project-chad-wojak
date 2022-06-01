@@ -11,6 +11,7 @@ For each of these tasks, you should create an [Issue](https://docs.github.com/en
 *Note: Make sure to include a link to the Issue you're working on inside of your Pull Request so your reviewer knows what you're working on!*
 
 ### GitHub Tasks
+
 - [x] Create Issues for each task below
 - [x] Work on each task in a new branch
 - [x] Open a Pull Request when a task is finished to get feedback
