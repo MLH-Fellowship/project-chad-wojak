@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 
 @app.route('/')
+@app.route("/home")
 def index():
     content = {
         'title': 'My Portfolio',
@@ -24,3 +25,14 @@ def index():
         }]
     }
     return render_template('index.html', **content)
+
+@app.route("/about")
+def about_me():
+     content = {
+         'name': 'Insert Your Name here'
+         ''
+     }
+    return render_template('about.html', **content)
+
+if __name__ == '__main__':
+    app.run(debug=True)
