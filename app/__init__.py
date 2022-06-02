@@ -7,20 +7,20 @@ app = Flask(__name__)
 
 
 base_content = {
-        'name': 'MLH Fellow',
-        'position': 'Software Engineer',
-        'url': os.getenv("URL"),
-        'socials': [{
-            'name': 'Github',
-            'url': 'https://github.com/MLH-Fellowship',
-            'icon': './static/img/social/github.svg'
-        }, {
-            'name': 'LinkedIn',
-            'url': 'https://www.linkedin.com/company/major-league-hacking/',
-            'icon': './static/img/social/linkedin.svg'
-        }],
-        # Whether it is an initial page load, and we should play the page load animations
-        'initial': True,
+    'name': 'MLH Fellow',
+    'position': 'Software Engineer',
+    'url': os.getenv("URL"),
+    'socials': [{
+        'name': 'Github',
+        'url': 'https://github.com/MLH-Fellowship',
+        'icon': './static/img/social/github.svg'
+    }, {
+        'name': 'LinkedIn',
+        'url': 'https://www.linkedin.com/company/major-league-hacking/',
+        'icon': './static/img/social/linkedin.svg'
+    }],
+    # Whether it is an initial page load, and we should play the page load animations
+    'initial': True,
 }
 
 @app.route('/')
