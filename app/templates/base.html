@@ -16,6 +16,11 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;1,200&display=swap"
       rel="stylesheet"
     />
+    <!-- animate.css for simple animations -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <link lang="css" rel="stylesheet" href="./static/styles/main.css" />
     <link lang="css" rel="stylesheet" href="./static/styles/profile.css" />
     {% block imports %}{% endblock %}
@@ -25,13 +30,13 @@
 
   <body>
     <div class="profile">
-      <div class="profile-picture">
+      <div class="profile-picture animate__animated animate__fadeInUp">
         <img src="./static/img/logo.jpg" />
       </div>
       <div class="profile-description">
-        <h1 class="profile-name">{{ name }}</h1>
-        <p class="profile-position">{{ position }}</p>
-        <div class="socials">
+        <h1 class="profile-name animate__animated animate__fadeInUp animate__delay-1s">{{ name }}</h1>
+        <p class="profile-position animate__animated animate__fadeInUp animate__delay-2s">{{ position }}</p>
+        <div class="socials animate__animated animate__fadeInUp animate__delay-3s">
           {% for social in socials %}
           <a class="socials-link" href="{{social.url}}" target="_blank">
             <img src="{{social.icon}}" alt="{{social.name}}" />
@@ -42,22 +47,24 @@
     </div>
     <div class="nav-bar-wrapper">
       <div class="nav-bar">
-        <a class="nav-item {{'active' if active_tab == 'about'}}" href="/about"
+        <a 
+          class="nav-item {{'active' if active_tab == 'about'}}" 
+          href="/about?from={{ active_tab }}"
           >About</a
         >
         <a
           class="nav-item {{'active' if active_tab == 'education' }}"
-          href="/education"
+          href="/education?from={{ active_tab }}"
           >Education</a
         >
         <a
           class="nav-item {{'active' if active_tab == 'hobbies' }}"
-          href="/hobbies"
+          href="/hobbies?from={{ active_tab }}"
           >Hobbies</a
         >
         <a
           class="nav-item {{'active' if active_tab == 'where-am-i' }}"
-          href="/where-am-i"
+          href="/where-am-i?from={{ active_tab }}"
           >Where Am I?</a
         >
       </div>
