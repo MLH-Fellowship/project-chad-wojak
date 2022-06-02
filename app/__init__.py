@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, make_response, render_template, request
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -30,7 +30,9 @@ def index():
         'title': 'Home - Portfolio',
         'active_tab': 'home'
     }
-    return render_template('index.html', **content)
+    resp = make_response(render_template('index.html', **content))
+    resp.set_cookie('prev_page', 'home')
+    return resp
 
 @app.route('/about')
 def about():
@@ -39,13 +41,17 @@ def about():
         'title': 'About - Portfolio',
         'active_tab': 'about'
     }
-    from_page = request.args.get('from')
-    if from_page is not None:
+    prev_page = request.cookies.get('prev_page', None, type=str)
+    print(f'prev_page for about: {prev_page}')
+    if prev_page is not None and prev_page != 'about':
         content = {
             **content,
             'initial': False
         }
-    return render_template('about.html', **content)
+    resp = make_response(render_template('about.html', **content))
+    resp.set_cookie('prev_page', 'about')
+    return resp
+
 
 @app.route('/education')
 def education():
@@ -54,13 +60,16 @@ def education():
         'title': 'Education - Portfolio',
         'active_tab': 'education'
     }
-    from_page = request.args.get('from')
-    if from_page is not None:
+    prev_page = request.cookies.get('prev_page', None, type=str)
+    print(f'prev_page for education: {prev_page}')
+    if prev_page is not None and prev_page != 'education':
         content = {
             **content,
             'initial': False
         }
-    return render_template('education.html', **content)
+    resp = make_response(render_template('education.html', **content))
+    resp.set_cookie('prev_page', 'education')
+    return resp 
 
 @app.route('/hobbies')
 def hobbies():
@@ -69,13 +78,16 @@ def hobbies():
         'title': 'Hobbies - Portfolio',
         'active_tab': 'hobbies'
     }
-    from_page = request.args.get('from')
-    if from_page is not None:
+    prev_page = request.cookies.get('prev_page', None, type=str)
+    print(f'prev_page for hobbies: {prev_page}')
+    if prev_page is not None and prev_page != 'hobbies':
         content = {
             **content,
             'initial': False
         }
-    return render_template('hobbies.html', **content)
+    resp = make_response(render_template('hobbies.html', **content))
+    resp.set_cookie('prev_page', 'hobbies')
+    return resp
 
 @app.route('/where-am-i')
 def where_am_i():
@@ -93,10 +105,13 @@ def where_am_i():
             'coords': [53, -113]
         }]
     }
-    from_page = request.args.get('from')
-    if from_page is not None:
+    prev_page = request.cookies.get('prev_page', None, type=str)
+    print(f'prev_page for where-am-i: {prev_page}')
+    if prev_page is not None and prev_page != 'where-am-i':
         content = {
             **content,
             'initial': False
         }
-    return render_template('where-am-i.html', **content)
+    resp = make_response(render_template('where-am-i.html', **content))
+    resp.set_cookie('prev_page', 'where-am-i')
+    return resp
