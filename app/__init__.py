@@ -24,42 +24,43 @@ base_content = {
 @app.route('/')
 def index():
     content = {
+        **base_content,
         'title': 'Home - Portfolio',
-        'active_tab': '',
-        **base_content
+        'active_tab': ''
     }
     return render_template('index.html', **content)
 
 @app.route('/about')
 def about():
     content = {
+        **base_content,
         'title': 'About - Portfolio',
-        'active_tab': 'about',
-        **base_content
+        'active_tab': 'about'
     }
     return render_template('about.html', **content)
 
 @app.route('/education')
 def education():
     content = {
+        **base_content,
         'title': 'Education - Portfolio',
-        'active_tab': 'education',
-        **base_content
+        'active_tab': 'education'
     }
     return render_template('education.html', **content)
 
 @app.route('/hobbies')
 def hobbies():
     content = {
+        **base_content,
         'title': 'Hobbies - Portfolio',
-        'active_tab': 'hobbies',
-        **base_content
+        'active_tab': 'hobbies'
     }
     return render_template('hobbies.html', **content)
 
 @app.route('/where-am-i')
 def where_am_i():
     content = {
+        **base_content,
         'title': 'Where am I - Portfolio',
         'active_tab': 'where-am-i',
         'places': [{
@@ -70,7 +71,6 @@ def where_am_i():
             'name': 'Edmonton',
             'description': 'Capital of the texas of canada',
             'coords': [53, -113]
-        }],
-        **base_content
+        }]
     }
     return render_template('where-am-i.html', **content)
