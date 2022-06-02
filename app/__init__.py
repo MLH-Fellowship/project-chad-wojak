@@ -33,6 +33,8 @@ def index():
 @app.route('/about')
 def about():
     content = {
+        'quote': 'Only one who devotes himself to a cause with his whole strength and soul can be a true master. For this reason mastery demands all of a person.',
+        'author': 'Albert Einstein',
         'title': 'About - Portfolio',
         'active_tab': 'about',
         **base_content
@@ -65,3 +67,5 @@ def where_am_i():
         **base_content
     }
     return render_template('where-am-i.html', **content)
+if __name__ == '__main__':
+    app.run(debug=True)
