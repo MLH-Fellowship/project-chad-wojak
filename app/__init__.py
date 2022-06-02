@@ -6,7 +6,11 @@ load_dotenv()
 app = Flask(__name__)
 
 
-base_content = {
+@app.route('/')
+@app.route("/home")
+def index():
+    content = {
+        'title': 'My Portfolio',
         'name': 'MLH Fellow',
         'position': 'Software Engineer',
         'url': os.getenv("URL"),
