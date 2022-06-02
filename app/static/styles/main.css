@@ -10,9 +10,9 @@ footer {
   font-family: "Poppins", sans-serif;
 }
 
-/* All animate.css delay classes will take half the time to start */
+/* All animate.css delay classes will take a quarter of the time to start */
 :root {
-  --animate-delay: 0.5s;
+  --animate-delay: 0.25s;
 }
 
 body {

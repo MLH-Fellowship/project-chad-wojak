@@ -29,14 +29,15 @@
   </head>
 
   <body>
+    <!-- play animations if it is the initial page load -->
     <div class="profile">
-      <div class="profile-picture animate__animated animate__fadeInUp">
+      <div class="profile-picture {{ 'animate__animated animate__fadeInUp' if initial }}">
         <img src="./static/img/logo.jpg" />
       </div>
       <div class="profile-description">
-        <h1 class="profile-name animate__animated animate__fadeInUp animate__delay-1s">{{ name }}</h1>
-        <p class="profile-position animate__animated animate__fadeInUp animate__delay-2s">{{ position }}</p>
-        <div class="socials animate__animated animate__fadeInUp animate__delay-3s">
+        <h1 class="profile-name {{ 'animate__animated animate__fadeInUp animate__delay-1s' if initial }}">{{ name }}</h1>
+        <p class="profile-position {{ 'animate__animated animate__fadeInUp animate__delay-2s' if initial }}">{{ position }}</p>
+        <div class="socials {{ 'animate__animated animate__fadeInUp animate__delay-3s' if initial }}">
           {% for social in socials %}
           <a class="socials-link" href="{{social.url}}" target="_blank">
             <img src="{{social.icon}}" alt="{{social.name}}" />
@@ -45,31 +46,43 @@
         </div>
       </div>
     </div>
-    <div class="nav-bar-wrapper">
+    <div class="nav-bar-wrapper {{ 'animate__animated animate__fadeInUp animate__delay-4s' if initial }}">
       <div class="nav-bar">
+        <!-- Little bit of complexity happening with the navigation bars
+
+            Basically, each link url will also have info on which page the user was at before (via url queries)
+            but, ONLY if the link is different than the current page.
+
+            This is so a refresh on a current page will rerun the profile animations, 
+            but clicking a link to another page will not make the profile animations run, but only move the page content left/right
+
+            Used a little bit of string concatenation (~) because nested jinja templates start to break
+        -->
         <a 
           class="nav-item {{'active' if active_tab == 'about'}}" 
-          href="/about?from={{ active_tab }}"
+          href="/about{{'?from=' ~ active_tab if active_tab != 'about' }}"
           >About</a
         >
         <a
           class="nav-item {{'active' if active_tab == 'education' }}"
-          href="/education?from={{ active_tab }}"
+          href="/education{{'?from=' ~ active_tab if active_tab != 'education' }}"
           >Education</a
         >
         <a
           class="nav-item {{'active' if active_tab == 'hobbies' }}"
-          href="/hobbies?from={{ active_tab }}"
+          href="/hobbies{{'?from=' ~ active_tab if active_tab != 'hobbies' }}"
           >Hobbies</a
         >
         <a
           class="nav-item {{'active' if active_tab == 'where-am-i' }}"
-          href="/where-am-i?from={{ active_tab }}"
+          href="/where-am-i{{'?from=' ~ active_tab if active_tab != 'where-am-i' }}"
           >Where Am I?</a
         >
       </div>
     </div>
+    <div class="content-wrapper {{ 'animate__animated animate__fadeInUp animate__delay-5s' if initial }}">
     {% block content %}{% endblock %}
+    </div>
     <footer>
       <p>&#169 Copyright Chad-wojak. 2022 All rights reserved</p>
     </footer>

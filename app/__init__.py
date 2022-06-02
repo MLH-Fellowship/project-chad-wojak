@@ -18,7 +18,9 @@ base_content = {
             'name': 'LinkedIn',
             'url': 'https://www.linkedin.com/company/major-league-hacking/',
             'icon': './static/img/social/linkedin.svg'
-        }]
+        }],
+        # Whether it is an initial page load, and we should play the page load animations
+        'initial': True,
 }
 
 @app.route('/')
@@ -37,6 +39,12 @@ def about():
         'title': 'About - Portfolio',
         'active_tab': 'about'
     }
+    from_page = request.args.get('from')
+    if from_page is not None:
+        content = {
+            **content,
+            'initial': False
+        }
     return render_template('about.html', **content)
 
 @app.route('/education')
@@ -46,6 +54,12 @@ def education():
         'title': 'Education - Portfolio',
         'active_tab': 'education'
     }
+    from_page = request.args.get('from')
+    if from_page is not None:
+        content = {
+            **content,
+            'initial': False
+        }
     return render_template('education.html', **content)
 
 @app.route('/hobbies')
@@ -55,6 +69,12 @@ def hobbies():
         'title': 'Hobbies - Portfolio',
         'active_tab': 'hobbies'
     }
+    from_page = request.args.get('from')
+    if from_page is not None:
+        content = {
+            **content,
+            'initial': False
+        }
     return render_template('hobbies.html', **content)
 
 @app.route('/where-am-i')
@@ -73,4 +93,10 @@ def where_am_i():
             'coords': [53, -113]
         }]
     }
+    from_page = request.args.get('from')
+    if from_page is not None:
+        content = {
+            **content,
+            'initial': False
+        }
     return render_template('where-am-i.html', **content)
