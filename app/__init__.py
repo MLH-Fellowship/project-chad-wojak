@@ -26,7 +26,7 @@ def index():
     content = {
         **base_content,
         'title': 'Home - Portfolio',
-        'active_tab': ''
+        'active_tab': 'home'
     }
     return render_template('index.html', **content)
 
