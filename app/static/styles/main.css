@@ -5,7 +5,8 @@ h3,
 h4,
 h5,
 h6,
-button {
+button,
+footer {
   font-family: "Poppins", sans-serif;
 }
 
@@ -45,4 +46,12 @@ body {
 
 .nav-bar > .nav-item.active {
   background-color: #d7d7d7;
+}
+
+footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #575757;
+  text-align: center;
 }
