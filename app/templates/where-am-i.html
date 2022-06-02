@@ -26,6 +26,12 @@ it #}
       maxZoom: 19,
       attribution: "© OpenStreetMap",
     }).addTo(map);
+
+    const data = {{ places | tojson }};
+    for (const place of data) {
+        const marker = L.marker([place.coords[0], place.coords[1]]).addTo(map);
+        marker.bindPopup(`<b>${place.name}</b><br/>${place.description}`);
+    }
   });
 </script>
 {% endblock %}
