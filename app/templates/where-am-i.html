@@ -27,6 +27,7 @@ it #}
       attribution: "© OpenStreetMap",
     }).addTo(map);
 
+    // WARNING: SYNTAX HIGHLIGHTING AY START TO BREAK DOWN
     const data = {{ places | tojson }};
     for (const place of data) {
         const marker = L.marker([place.coords[0], place.coords[1]]).addTo(map);
