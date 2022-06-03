@@ -46,11 +46,9 @@
                 // finish redirect
                 // make sure the content is hidden after it animates out
                 content.style.visibility = 'hidden';
-                console.timeEnd("animateOut");
                 window.location = node.href;
             }).catch((error) => {
                 console.log(error);
-                console.timeEnd("animateOut");
             });
             
         }
@@ -91,7 +89,7 @@
     <div 
         class="content-wrapper 
             {{ 'animate__animated animate__fadeInUp animate__delay-5s' if initial }}
-            {{ 'animate__animated ' ~ content_slide_animation if content_slide_animation is not none }}">
+            {{ 'animate__animated animate__faster ' ~ content_slide_animation if content_slide_animation is not none }}">
         {% block content %}{% endblock %}
     </div>
     <footer>
