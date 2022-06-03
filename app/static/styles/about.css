@@ -30,21 +30,20 @@ h2 {
 
 }
 
-.something {
+.quote {
   animation: fadeIn ease 2s linear infinite;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono:400');
 
-.something {
+.quote {
   display: flex;
-  width: auto;
   height: 40vh;
   align-items: center;
   justify-content: center;
   margin: 0;
-  padding-left: 2em;
-  padding-right: 2em;
+  padding-left: 4em;
+  padding-right: 4em;
   color: #b06ab3;
   margin-bottom:4em;
   font-size: 32px;
@@ -53,29 +52,28 @@ h2 {
   font-style: italic;
 }
 
-.something {
+.quote {
   animation: glitch 1s linear infinite;
 }
 
-.something:before,
-.something:after {
+.quote:before,
+.quote:after {
   content: attr(title);
   position: absolute;
   left: 0;
 }
 
-.something:before {
+.quote:before {
   animation: glitchTop 1s linear infinite;
   clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
 }
 
-.something:after {
+.quote:after {
   animation: glitchBotom 1.5s linear infinite;
   clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
   -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
 }
-
 
 @keyframes glitchTop {
 

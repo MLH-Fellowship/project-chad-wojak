@@ -81,6 +81,7 @@
     <div class="nav-bar-wrapper {{ 'animate__animated animate__fadeInUp animate__delay-4s' if initial }}">
       <div class="nav-bar">
         <a class="nav-item {{'active' if active_tab == 'about'}}" onclick="animateOut(this, '{{ active_tab }}', 'about', event)" href="/about">About</a>
+        <a class="nav-item {{'active' if active_tab == 'work' }}" onclick="animateOut(this, '{{ active_tab }}', 'work', event)" href="/work">Work</a>
         <a class="nav-item {{'active' if active_tab == 'education' }}" onclick="animateOut(this, '{{ active_tab }}', 'education', event)" href="/education">Education</a>
         <a class="nav-item {{'active' if active_tab == 'hobbies' }}" onclick="animateOut(this, '{{ active_tab }}', 'hobbies', event)" href="/hobbies">Hobbies</a >
         <a class="nav-item {{'active' if active_tab == 'where-am-i' }}" onclick="animateOut(this, '{{ active_tab }}', 'where-am-i', event)" href="/where-am-i">Where Am I?</a>
