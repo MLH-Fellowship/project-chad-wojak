@@ -38,6 +38,8 @@ def index():
 def about():
     content = {
         **base_content,
+        'quote': 'Only one who devotes himself to a cause with his whole strength and soul can be a true master. For this reason mastery demands all of a person.',
+        'author': 'Albert Einstein',
         'title': 'About - Portfolio',
         'active_tab': 'about'
     }
@@ -73,6 +75,7 @@ def education():
     resp.set_cookie('prev_page', 'education')
     return resp 
 
+
 @app.route('/hobbies')
 def hobbies():
     content = {
@@ -91,6 +94,7 @@ def hobbies():
     resp = make_response(render_template('hobbies.html', **content))
     resp.set_cookie('prev_page', 'hobbies')
     return resp
+
 
 @app.route('/where-am-i')
 def where_am_i():
@@ -120,9 +124,14 @@ def where_am_i():
     resp.set_cookie('prev_page', 'where-am-i')
     return resp
 
+
 # from the two pages, gets the animate.css animation to play
 # either a `animate__slideInLeft` or `animate__slideInRight`
 def get_animation(prev_page: str, curr_page: str) -> str:
     pages = {'home': 0, 'about': 1, 'education': 2, 'hobbies': 3, 'where-am-i': 4}
     anim = 'slideInRight' if pages[prev_page] < pages[curr_page] else 'slideInLeft'
     return f'animate__{anim}'
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
