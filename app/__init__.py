@@ -115,7 +115,7 @@ def handle_route(name: str, id: str, content: dict[str, Any]):
 # from the two pages, gets the animate.css animation to play
 # either a `animate__slideInLeft` or `animate__slideInRight`
 def get_animation(prev_page: str, curr_page: str) -> str:
-    pages = {'home': 0, 'about': 1, 'education': 2, 'hobbies': 3, 'where-am-i': 4}
+    pages = {'index': 0, 'about': 1, 'education': 2, 'hobbies': 3, 'where-am-i': 4}
     anim = 'slideInRight' if pages[prev_page] < pages[curr_page] else 'slideInLeft'
     return f'animate__{anim}'
 
