@@ -40,6 +40,12 @@ def about():
     }
     return handle_route('About', 'about', content)
 
+@app.route('/work')
+def work():
+    content = {
+        **base_content,
+    }
+    return handle_route('Work Experiences', 'work', content)
 
 @app.route('/education')
 def education():
@@ -115,7 +121,7 @@ def handle_route(name: str, id: str, content):
 # from the two pages, gets the animate.css animation to play
 # either a `animate__slideInLeft` or `animate__slideInRight`
 def get_animation(prev_page: str, curr_page: str) -> str:
-    pages = {'index': 0, 'about': 1, 'education': 2, 'hobbies': 3, 'where-am-i': 4}
+    pages = {'index': 0, 'about': 1, 'work': 2, 'education': 3, 'hobbies': 4, 'where-am-i': 5}
     anim = 'slideInRight' if pages[prev_page] < pages[curr_page] else 'slideInLeft'
     return f'animate__{anim}'
 
