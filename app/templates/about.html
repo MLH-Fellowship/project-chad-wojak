@@ -1,10 +1,37 @@
+<!DOCTYPE html>
 {% extends 'base.html' %}
 <!-- Imports -->
 {% block imports %}
-<link lang="sass" rel="stylesheet" href="./static/styles/about.css" />
+<link lang="css" rel="stylesheet" href="./static/styles/about.css" />
 {% endblock %}
+
+
 
 <!-- Add content here -->
 {% block content %}
-<h1>About</h1>
+
+    <html>
+    <head>
+    </head>
+
+    <body>
+        <div class="container">
+            <h3>About me </h3>
+            <p>I am a <strong>{{position}}</strong> <span class="auto-type"></span></p>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+        <script>
+            var typed = new Typed(".auto-type", {
+                strings: [" who can make innovation into invention.",
+                 " who can succeed in the face of hardships.", " who can go above and beyond."],
+                typeSpeed: 30,
+                backSpeed: 30,
+                loop: true
+            })
+        </script>
+        <h2 class = "something">{{quote}} - {{author}}</h2>
+    </body>
+    </html>
 {% endblock %}

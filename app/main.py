@@ -85,18 +85,19 @@ def hobbies():
                        {
                            'name': 'Chess',
                            'img': 'https://www.chess.com/bundles/web/images/offline-play/standardboard.1d6f9426.png',
-                           'desc': 'I I love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhlove ches ches cheshh'
+                           'desc': 'I I love ches ches cheshhI lhes cheshhI love ches ches cheshhlove ches ches cheshh'
                        },
                        {
                            'name': 'Chess',
                            'img': 'https://www.chess.com/bundles/web/images/offline-play/standardboard.1d6f9426.png',
-                           'desc': 'I I love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhlove ches ches cheshh'
+                           'desc': 'I I love ches ches cheshhI hes ches cheshhI love ches ches cheshhlove ches ches cheshh'
                        },
                        {
                            'name': 'Chess',
                            'img': 'https://www.chess.com/bundles/web/images/offline-play/standardboard.1d6f9426.png',
-                           'desc': 'I I love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhI love ches ches cheshhlove ches ches cheshh'
+                           'desc': 'I I love chhes cheshhI love ches ches cheshhI love ches ches cheshhlove ches ches cheshh'
                        }
+                       
                    ],
                    **base_content
     }
@@ -107,6 +108,15 @@ def where_am_i():
     content = {
         'title': 'Where am I - Portfolio',
         'active_tab': 'where-am-i',
+        'places': [{
+            'name': 'San Francisco',
+            'description': 'I am currently living in San Francisco, California (lie)',
+            'coords': [37.75, -122.4]
+        },{
+            'name': 'Edmonton',
+            'description': 'Capital of the texas of canada',
+            'coords': [53, -113]
+        }],
         **base_content
     }
     return render_template('where-am-i.html', **content)
