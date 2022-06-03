@@ -115,10 +115,3 @@ def where_am_i():
     resp = make_response(render_template('where-am-i.html', **content))
     resp.set_cookie('prev_page', 'where-am-i')
     return resp
-
-# Internal use
-# returns which animate.css animation to do (left or right)
-# based on page states
-@app.route('/anim-state')
-def anim_state():
-    prev_page = request.cookies.get('prev_page', None, type=str)
