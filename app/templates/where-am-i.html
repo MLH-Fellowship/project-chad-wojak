@@ -14,6 +14,7 @@
   crossorigin=""
 ></script>
 <link lang="css" rel="stylesheet" href="./static/styles/where-am-i.css" />
+
 {# since we need to use template vars, we cannot make a new JS file and import
 it #}
 <script type="text/javascript">
@@ -26,7 +27,6 @@ it #}
       attribution: "© OpenStreetMap",
     }).addTo(map);
 
-    // WARNING: SYNTAX HIGHLIGHTING AY START TO BREAK DOWN
     const data = {{ places | tojson }};
     for (const place of data) {
         const marker = L.marker([place.coords[0], place.coords[1]]).addTo(map);
