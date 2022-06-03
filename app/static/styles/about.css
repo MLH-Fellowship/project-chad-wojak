@@ -31,8 +31,8 @@ h7 {
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
    line-height: 1em;
-   padding-bottom: 20px;
-   padding-top: 100px;
+   padding-bottom: 10px;
+   padding-top: 10px;
 }
 p {
   text-align: center;
