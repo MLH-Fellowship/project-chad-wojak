@@ -74,7 +74,7 @@ def where_am_i():
     return handle_route('Where am I', 'where-am-i', content)
 
 
-def handle_route(name: str, id: str, content: dict[str, Any]):
+def handle_route(name: str, id: str, content):
     '''
     Handles routing logic for each page
 
