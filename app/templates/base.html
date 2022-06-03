@@ -36,14 +36,21 @@
             e.preventDefault();
             // if >0, we are moving right, so animate left
             const anim = pages[nextPage] - pages[currPage] > 0 ? 'slideOutLeft' : 'slideOutRight';
-            // Now, add it to the element. 
+
+            // remove `animate__delay-5s` from .content-wrapper (it might be there from the initial page load)
+            const content = document.querySelector('.content-wrapper');
+            content.classList.remove('animate__delay-5s');
+
+            // Now, add the animation to the element
             animateCSS('.content-wrapper', anim).then((message) => {
                 // finish redirect
-                const content = document.querySelector('.content-wrapper');
+                // make sure the content is hidden after it animates out
                 content.style.visibility = 'hidden';
+                console.timeEnd("animateOut");
                 window.location = node.href;
             }).catch((error) => {
                 console.log(error);
+                console.timeEnd("animateOut");
             });
             
         }

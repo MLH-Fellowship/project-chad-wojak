@@ -18,17 +18,24 @@
 const animateCSS = (element, animation, prefix = "animate__") =>
   // We create a Promise and return it
   new Promise((resolve, reject) => {
+    console.time("animateCss");
     const animationName = `${prefix}${animation}`;
     const node = document.querySelector(element);
 
-    node.classList.add(`${prefix}animated`, animationName, "animate__faster");
+    node.classList.add(`${prefix}animated`, animationName);
+    node.style.setProperty("--animate-duration", "0.3s");
+
+    console.timeLog("animateCss", "set properties");
 
     // When the animation ends, we clean the classes and resolve the Promise
     function handleAnimationEnd(event) {
+      console.timeLog("animateCss");
       event.stopPropagation();
       node.classList.remove(`${prefix}animated`, animationName);
+      console.timeEnd("animateCss");
       resolve("Animation ended");
     }
+    console.timeLog("animateCss", "function declarations");
 
     node.addEventListener("animationend", handleAnimationEnd, { once: true });
   });
