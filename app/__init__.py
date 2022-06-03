@@ -46,7 +46,8 @@ def about():
     if prev_page is not None and prev_page != 'about':
         content = {
             **content,
-            'initial': False
+            'initial': False,
+            'content_slide_animation': get_animation(prev_page, 'about')
         }
     resp = make_response(render_template('about.html', **content))
     resp.set_cookie('prev_page', 'about')
@@ -65,7 +66,8 @@ def education():
     if prev_page is not None and prev_page != 'education':
         content = {
             **content,
-            'initial': False
+            'initial': False,
+            'content_slide_animation': get_animation(prev_page, 'education')
         }
     resp = make_response(render_template('education.html', **content))
     resp.set_cookie('prev_page', 'education')
@@ -83,7 +85,8 @@ def hobbies():
     if prev_page is not None and prev_page != 'hobbies':
         content = {
             **content,
-            'initial': False
+            'initial': False,
+            'content_slide_animation': get_animation(prev_page, 'hobbies')
         }
     resp = make_response(render_template('hobbies.html', **content))
     resp.set_cookie('prev_page', 'hobbies')
@@ -110,8 +113,16 @@ def where_am_i():
     if prev_page is not None and prev_page != 'where-am-i':
         content = {
             **content,
-            'initial': False
+            'initial': False,
+            'content_slide_animation': get_animation(prev_page, 'where-am-i')
         }
     resp = make_response(render_template('where-am-i.html', **content))
     resp.set_cookie('prev_page', 'where-am-i')
     return resp
+
+# from the two pages, gets the animate.css animation to play
+# either a `animate__slideInLeft` or `animate__slideInRight`
+def get_animation(prev_page: str, curr_page: str) -> str:
+    pages = {'home': 0, 'about': 1, 'education': 2, 'hobbies': 3, 'where-am-i': 4}
+    anim = 'slideInRight' if pages[prev_page] < pages[curr_page] else 'slideInLeft'
+    return f'animate__{anim}'

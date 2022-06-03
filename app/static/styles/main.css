@@ -12,7 +12,7 @@ footer {
 
 /* All animate.css delay classes will take a quarter of the time to start */
 :root {
-  --animate-delay: 0.25s;
+  --animate-delay: 0.01s;
 }
 
 body {
