@@ -27,6 +27,7 @@ base_content = {
 @app.route('/')
 def index():
     # no extra content needed
+    # title and active_tab handled by `handle_route`
     return handle_route('Home', 'index', base_content)
 
 
