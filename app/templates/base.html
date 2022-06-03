@@ -21,6 +21,33 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
+    <!-- JS for animation logic -->
+    <script src="./static/scripts/animateHelper.js"></script>
+    <script>
+        // orders the page names
+        const pages = { 
+            "about": 0,
+            "education": 1,
+            "hobbies": 2,
+            "where-am-i": 3
+        };
+        // this function returns an event handler
+        const animateOut = (node, currPage, nextPage, e) => {
+            e.preventDefault();
+            // if >0, we are moving right, so animate left
+            const anim = pages[nextPage] - pages[currPage] > 0 ? 'slideOutLeft' : 'slideOutRight';
+            // Now, add it to the element. 
+            animateCSS('.content-wrapper', anim).then((message) => {
+                // finish redirect
+                const content = document.querySelector('.content-wrapper');
+                content.style.visibility = 'hidden';
+                window.location = node.href;
+            }).catch((error) => {
+                console.log(error);
+            });
+            
+        }
+    </script>
     <link lang="css" rel="stylesheet" href="./static/styles/main.css" />
     <link lang="css" rel="stylesheet" href="./static/styles/profile.css" />
     {% block imports %}{% endblock %}
@@ -48,14 +75,14 @@
     </div>
     <div class="nav-bar-wrapper {{ 'animate__animated animate__fadeInUp animate__delay-4s' if initial }}">
       <div class="nav-bar">
-        <a class="nav-item {{'active' if active_tab == 'about'}}" href="/about">About</a>
-        <a class="nav-item {{'active' if active_tab == 'education' }}" href="/education">Education</a>
-        <a class="nav-item {{'active' if active_tab == 'hobbies' }}" href="/hobbies">Hobbies</a >
-        <a class="nav-item {{'active' if active_tab == 'where-am-i' }}" href="/where-am-i">Where Am I?</a>
+        <a class="nav-item {{'active' if active_tab == 'about'}}" onclick="animateOut(this, '{{ active_tab }}', 'about', event)" href="/about">About</a>
+        <a class="nav-item {{'active' if active_tab == 'education' }}" onclick="animateOut(this, '{{ active_tab }}', 'education', event)" href="/education">Education</a>
+        <a class="nav-item {{'active' if active_tab == 'hobbies' }}" onclick="animateOut(this, '{{ active_tab }}', 'hobbies', event)" href="/hobbies">Hobbies</a >
+        <a class="nav-item {{'active' if active_tab == 'where-am-i' }}" onclick="animateOut(this, '{{ active_tab }}', 'where-am-i', event)" href="/where-am-i">Where Am I?</a>
       </div>
     </div>
     <div class="content-wrapper {{ 'animate__animated animate__fadeInUp animate__delay-5s' if initial }}">
-    {% block content %}{% endblock %}
+        {% block content %}{% endblock %}
     </div>
     <footer>
       <p>&#169 Copyright Chad-wojak. 2022 All rights reserved</p>
