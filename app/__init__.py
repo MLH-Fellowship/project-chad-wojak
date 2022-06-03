@@ -23,6 +23,8 @@ base_content = {
     'initial': True,
 }
 
+# TODO: Refactor these out
+
 @app.route('/')
 def index():
     content = {
@@ -43,14 +45,18 @@ def about():
         'title': 'About - Portfolio',
         'active_tab': 'about'
     }
+    # check prev_page cookie to see what animations we have to do
     prev_page = request.cookies.get('prev_page', None, type=str)
     print(f'prev_page for about: {prev_page}')
     if prev_page is not None and prev_page != 'about':
+        # Here, we have a prev_page (so the user clicked on the navbar) and it wasn't the about page
+        # thus, there is a sliding page transition we need to do
         content = {
             **content,
             'initial': False,
             'content_slide_animation': get_animation(prev_page, 'about')
         }
+    # set the prev_page cookie to "about", so the next link will know what page transition to do
     resp = make_response(render_template('about.html', **content))
     resp.set_cookie('prev_page', 'about')
     return resp
