@@ -45,6 +45,16 @@ def about():
 def education():
     content = {
         **base_content,
+        'educations': [{
+            'school': 'Meta University',
+            'degree': 'Bachelor of Science',
+            'major': 'Zucc Sciences',
+            'years': '2020 - Present'
+        }, {
+            'school': 'Atlantis High School',
+            'degree': 'High School Diploma',
+            'years': '2016 - 2020'
+        }]
     }
     return handle_route('Education', 'education', content)
 

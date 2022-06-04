@@ -1,5 +1,22 @@
 {% extends 'base.html' %}
+
+<!-- Imports -->
+{% block imports %}
+<link lang="css" rel="stylesheet" href="./static/styles/education.css" />
+{% endblock %}
+
 <!-- Add content here -->
 {% block content %}
 <h3 class="content-title">Education</h3>
+
+<ul class="education-wrapper">
+  {% for education in educations %}
+  <li class="education-item">
+    <div class="years">{{ education.years }}</div>
+    <h4 class="school">{{ education.school }}</h4>
+    <p class="degree">{{ education.degree }}</p>
+    <p class="major">{{ education.major }}</p>
+  </li>
+  {% endfor %}
+</ul>
 {% endblock %}
