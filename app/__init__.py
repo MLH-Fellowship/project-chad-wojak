@@ -68,8 +68,16 @@ def where_am_i():
             'coords': [37.75, -122.4]
         },{
             'name': 'Edmonton',
-            'description': 'Capital of the texas of canada',
+            'description': 'Capital of the texas of Canada',
             'coords': [53, -113]
+        },{
+            'name': 'Seattle',
+            'description': 'The seat of King County, Washington',
+            'coords': [47, -120]
+        },{
+            'name': 'San Juan',
+            'description': 'Unincorporated territory of the United States',
+            'coords': [18, -66]
         }],
         **base_content
     }
