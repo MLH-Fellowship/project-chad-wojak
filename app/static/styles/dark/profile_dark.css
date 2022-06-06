@@ -35,15 +35,16 @@ profile-specific styles
 .profile-description > .profile-name {
   font-size: 2em;
   margin-left: 1em;
-  color: #F1F2F4;
+  color: #f1f2f4;
   margin: 0;
 }
 
 .profile-description > .profile-position {
   font-size: 1em;
-  color: #A3ABB2;
+  color: #a3abb2;
   margin: 0;
   text-align: left;
+  font-style: italic;
 }
 
 .profile-description > .socials {
