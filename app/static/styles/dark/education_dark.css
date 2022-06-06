@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 3em;
 }
 
 ul.education-wrapper {
@@ -35,7 +36,7 @@ li.education-item:before {
   border: 1px solid #abaaed;
   border-radius: 50%;
   position: absolute;
-  left: -11px;
+  left: -10px;
   top: 0px;
 }
 

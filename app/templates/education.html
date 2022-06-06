@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
 
 <!-- Imports -->
-{% block imports %}
-<link lang="css" rel="stylesheet" href="./static/styles/education.css" />
-{% endblock %}
+{% block imports %} 
+{% set theme = request.cookies.get("theme") %} 
+{% if theme == 'light' or not theme %}
+    <link lang="css" rel="stylesheet" href="./static/styles/light/education.css" />
+    <link lang="css" rel="stylesheet" href="./static/styles/light/education.css" />
+{% else %}
+<link lang="css" rel="stylesheet" href="./static/styles/dark/education_dark.css" />
+<link lang="css" rel="stylesheet" href="./static/styles/dark/education_dark.css" />
+{% endif %} {% endblock %}
 
 <!-- Add content here -->
 {% block content %}
