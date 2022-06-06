@@ -9,6 +9,11 @@ button {
   font-family: "Poppins", sans-serif;
 }
 
+/* All animate.css delay classes will take a quarter of the time to start */
+:root {
+  --animate-delay: 0.25s;
+}
+
 body {
   background-color: #e9ebec;
   background-size: cover;
@@ -45,4 +50,12 @@ body {
 
 .nav-bar > .nav-item.active {
   background-color: #d7d7d7;
+}
+
+footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #575757;
+  text-align: center;
 }
