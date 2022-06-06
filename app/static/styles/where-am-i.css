@@ -31,7 +31,7 @@ p {
   text-align: center;
 }
 
-.container {
+.box {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,4 +42,8 @@ p {
   height: 600px;
   width: 700px;
   border-radius: 2em;
+}
+
+ul {
+  margin-bottom: 1em;
 }
