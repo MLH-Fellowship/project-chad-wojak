@@ -1,6 +1,10 @@
 import os
 from typing import Any
+<<<<<<< HEAD
 from flask import Flask, make_response, render_template, request, redirect, url_for
+=======
+from flask import Flask, make_response, render_template, request
+>>>>>>> main
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -52,6 +56,7 @@ def education():
 @app.route('/hobbies')
 def hobbies():
     content = {
+<<<<<<< HEAD
         'title': 'Hobbies - Portfolio',
         'active_tab': 'hobbies',
         'hobbies': [
@@ -93,6 +98,12 @@ def hobbies():
         **base_content
     }
     return handle_route('Hobbies', 'hobbies', content)
+=======
+        **base_content,
+    }
+    return handle_route('Hobbies', 'hobbies', content)
+
+>>>>>>> main
 
 
 @app.route('/where_am_i')
@@ -109,7 +120,11 @@ def where_am_i():
             'coords': [53, -113]
         }]
     }
+<<<<<<< HEAD
     return handle_route('Where am I', 'where_am_i', content)
+=======
+    return handle_route('Where am I', 'where-am-i', content)
+>>>>>>> main
 
 
 def handle_route(name: str, id: str, content):
@@ -153,11 +168,16 @@ def handle_route(name: str, id: str, content):
 # from the two pages, gets the animate.css animation to play
 # either a `animate__slideInLeft` or `animate__slideInRight`
 def get_animation(prev_page: str, curr_page: str) -> str:
+<<<<<<< HEAD
     pages = {'index': 0, 'about': 1, 'education': 2, 'hobbies': 3, 'where_am_i': 4}
+=======
+    pages = {'index': 0, 'about': 1, 'education': 2, 'hobbies': 3, 'where-am-i': 4}
+>>>>>>> main
     anim = 'slideInRight' if pages[prev_page] < pages[curr_page] else 'slideInLeft'
     return f'animate__{anim}'
 
 
+<<<<<<< HEAD
 @app.route("/set")
 @app.route("/set/<theme>")
 def set_theme(theme='light'):
@@ -166,5 +186,7 @@ def set_theme(theme='light'):
     return res
 
 
+=======
+>>>>>>> main
 if __name__ == '__main__':
     app.run(debug=True)

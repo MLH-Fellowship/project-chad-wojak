@@ -97,7 +97,7 @@
         </div>
       </div>
     </div>
-    <div class="nav-bar-wrapper {{ 'animate__animated animate__fadeinup animate__delay-4s' if initial }}">
+    <div class="nav-bar-wrapper {{ 'animate__animated animate__fadeInUp animate__delay-4s' if initial }}">
       <div class="nav-bar">
         <a class="nav-item {{'active' if active_tab == 'about'}}" onclick="animateout(this, '{{ active_tab }}', 'about', event)" href="/about">about</a>
         <a class="nav-item {{'active' if active_tab == 'education' }}" onclick="animateout(this, '{{ active_tab }}', 'education', event)" href="/education">education</a>
@@ -107,7 +107,7 @@
     </div>
     <div
         class="content-wrapper
-            {{ 'animate__animated animate__fadeinup animate__delay-5s' if initial }}
+            {{ 'animate__animated animate__fadeInUp animate__delay-5s' if initial }}
             {{ 'animate__animated animate__faster ' ~ content_slide_animation if content_slide_animation is not none }}">
         {% block content %}{% endblock %}
     </div>
