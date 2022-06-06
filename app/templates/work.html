@@ -21,10 +21,10 @@
   <h7 >Work Experience</h7>
   {% for job in jobs %}
 
-  <h1 id = "random"> <script>randomColors()</script>Job Title: {{job.name}} </h1></div>
-  <p> <script>randomColors()</script>Location : {{job.location}}</p></div>
-  <p> <script>randomColors()</script>Phone : {{job.contact}}</p></div>
-  <p> <script>randomColors()</script>{{job.description}}</p></div>
+  <script>randomColors()</script><h1> Job Title: {{job.name}} </h1>
+  <p> Location : {{job.location}}</p>
+  <p> Phone : {{job.contact}}</p>
+  <p> {{job.description}}</p></div>
   __________________________________________________________________________________________________________________________________________
   {% endfor %}
   
