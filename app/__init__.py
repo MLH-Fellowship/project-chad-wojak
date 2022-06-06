@@ -57,23 +57,36 @@ def hobbies():
         'hobbies': [
             {
                 'name': 'Badminton',
-                'img': 'https://cdn.shopify.com/s/files/1/0020/9407/1890/files/2_480x480.jpg?v=1559302854',
-                'desc': 'II l]]]]ove badmintonI l]]]]ove badmintonI l]]]]ove badmintonI l]]]]ove badmintonI l]]]]ove badmintonI l]]]]ove badmintonI l]]]]ove badmintonI l]]]]ove badminton l]]]]ove badminton'
+                'img': 'https://cdn.shopify.com/s/files/1/0020/9407/1890/files/2_480x480.jpg?v'
+                       '=1559302854',
+                'desc': "I've been playing badminton ever since I was a little kid. I've played "
+                        "at all collegiate levels and have multiple competitive accomplishments "
+                        "in the sport. "
             },
             {
                 'name': 'Chess',
-                'img': 'https://www.chess.com/bundles/web/images/offline-play/standardboard.1d6f9426.png',
-                'desc': 'I I love ches ches cheshhI lhes cheshhI love ches ches cheshhlove ches ches cheshh'
+                'img': 'https://images.ctfassets.net/3s5io6mnxfqz/wfAz3zUBbrcf1eSMLZi8u'
+                       '/c03ac28c778813bd72373644ee8b8b02/AdobeStock_364059453.jpeg?fm=jpg&w=900'
+                       '&fl=progressive',
+                'desc': "I've been playing chess since I was a little kid. I've played at all "
+                        "collegiate levels and have multiple competitve accomplishments in the "
+                        "sport."
             },
             {
-                'name': 'Chess',
-                'img': 'https://www.chess.com/bundles/web/images/offline-play/standardboard.1d6f9426.png',
-                'desc': 'I I love ches ches cheshhI hes ches cheshhI love ches ches cheshhlove ches ches cheshh'
+                'name': 'Bouldering',
+                'img': 'https://a2cf4fa39d1096849525-c9e74d9e365a688b9dfb3e01b6ac4867.ssl.cf5'
+                       '.rackcdn.com/cloud_images/Climber-at-bouldering-gym.jpg',
+                'desc': "One of my favorite pastimes is bouldering. It's a great way to exercise "
+                        "while solving problems with other people. I plan on bouldering even more "
+                        "next year. "
             },
             {
-                'name': 'Chess',
-                'img': 'https://www.chess.com/bundles/web/images/offline-play/standardboard.1d6f9426.png',
-                'desc': 'I I love chhes cheshhI love ches ches cheshhI love ches ches cheshhlove ches ches cheshh'
+                'name': 'Cycling',
+                'img': 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mff-roka'
+                       '-0618-1-preview-maxwidth-3000-maxheight-3000-ppi-300-quality-90'
+                       '-1620433208.jpg?crop=1.00xw:0.750xh;0,0.190xh&resize=1200:*',
+                'desc': "I'm an amateur cyclist and part of my local cycling club. I enjoy "
+                        "exploring new routes every weekend and getting new PRs on my Strava. "
             }
 
         ],
