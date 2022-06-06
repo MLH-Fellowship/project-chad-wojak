@@ -44,7 +44,6 @@ def about():
 def work():
     content = {
         **base_content,
-<<<<<<< HEAD
         'jobs': [{
             'name': 'Theoretical physicist',
             'location': 'Mars',
@@ -56,8 +55,6 @@ def work():
             'contact': '127.255.255.255',
             'description' : 'Today I walked down a street where many computer programmers live. The houses were numbered 64k, 128k, 256k, 512k and 1MB. For some reason it felt like a trip down memory lane.'
         }]
-=======
->>>>>>> e2c4f66d2cf2027c5a9fead6835e370b46d81ade
     }
     return handle_route('Work Experiences', 'work', content)
 
@@ -192,11 +189,7 @@ def handle_route(name: str, id: str, content):
 # from the two pages, gets the animate.css animation to play
 # either a `animate__slideInLeft` or `animate__slideInRight`
 def get_animation(prev_page: str, curr_page: str) -> str:
-<<<<<<< HEAD
-    pages = {'index': 0, 'about': 1, 'work': 2, 'education': 3, 'hobbies': 4, 'where-am-i': 5}
-=======
     pages = {'index': 0, 'about': 1, 'work': 2, 'education': 3, 'hobbies': 4, 'where_am_i': 5}
->>>>>>> e2c4f66d2cf2027c5a9fead6835e370b46d81ade
     anim = 'slideInRight' if pages[prev_page] < pages[curr_page] else 'slideInLeft'
     return f'animate__{anim}'
 
