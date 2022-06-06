@@ -5,15 +5,26 @@
 <link lang="css" rel="stylesheet" href="./static/styles/about.css" />
 {% endblock %}
 
+
+
+
 <!-- Add content here -->
 {% block content %}
+<script type="text/javascript">
+  function randomColors() {
+    document.write("<div style='color:#" + Math.floor(Math.random()*4096).toString(16) + ";font-size: " + 24 + "px;'>");
+      
+  }
+</script>
+
 <div class="container">
-  <h7>Work Experience</h7>
+  <h7 >Work Experience</h7>
   {% for job in jobs %}
-  <h1> Job Title: {{job.name}} </h1>
-  <p> Location : {{job.location}}</p>
-  <p> Phone : {{job.contact}}</p>
-  <p> {{job.description}}</p>
+
+  <h1 id = "random"> <script>randomColors()</script>Job Title: {{job.name}} </h1></div>
+  <p> <script>randomColors()</script>Location : {{job.location}}</p></div>
+  <p> <script>randomColors()</script>Phone : {{job.contact}}</p></div>
+  <p> <script>randomColors()</script>{{job.description}}</p></div>
   {% endfor %}
   
 </div>
