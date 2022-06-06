@@ -9,6 +9,11 @@ button {
   font-family: "Poppins", sans-serif;
 }
 
+/* All animate.css delay classes will take a quarter of the time to start */
+:root {
+  --animate-delay: 0.25s;
+}
+
 body {
   background-color: #e9ebec;
   background-size: cover;
@@ -16,6 +21,27 @@ body {
   overflow-x: hidden;
   font-family: "Poppins", sans-serif;
   margin: 0px;
+}
+
+/* Title stuff */
+
+h3.content-title {
+  --primary-color: #4568dc;
+  --secondary-color: #b06ab3;
+  font-weight: 800;
+  font-size: calc(4vw + 4vh);
+  letter-spacing: -0.2rem;
+  margin: 50px 0 30px;
+  background: linear-gradient(
+    45deg,
+    var(--primary-color) 32.5%,
+    var(--secondary-color) 50.5%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1em;
+  padding-bottom: 20px;
+  text-align: center;
 }
 
 /* navbar */
@@ -45,4 +71,12 @@ body {
 
 .nav-bar > .nav-item.active {
   background-color: #d7d7d7;
+}
+
+footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #575757;
+  text-align: center;
 }

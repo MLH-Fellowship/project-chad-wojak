@@ -1,4 +1,4 @@
-/**
+/*
 profile-specific styles
 */
 
@@ -43,12 +43,15 @@ profile-specific styles
   font-size: 1em;
   color: #575757;
   margin: 0;
+  text-align: left;
+  font-style: italic;
 }
 
 .profile-description > .socials {
   display: flex;
   flex-direction: row;
   gap: 1em;
+  padding: 0.5em 0;
 }
 .profile-description > .socials > a.socials-link {
   width: 1.75em;
