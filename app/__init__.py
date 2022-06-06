@@ -95,7 +95,7 @@ def hobbies():
     return handle_route('Hobbies', 'hobbies', content)
 
 
-@app.route('/where-am-i')
+@app.route('/where_am_i')
 def where_am_i():
     content = {
         **base_content,
@@ -109,7 +109,7 @@ def where_am_i():
             'coords': [53, -113]
         }]
     }
-    return handle_route('Where am I', 'where-am-i', content)
+    return handle_route('Where am I', 'where_am_i', content)
 
 
 def handle_route(name: str, id: str, content):
@@ -153,7 +153,7 @@ def handle_route(name: str, id: str, content):
 # from the two pages, gets the animate.css animation to play
 # either a `animate__slideInLeft` or `animate__slideInRight`
 def get_animation(prev_page: str, curr_page: str) -> str:
-    pages = {'index': 0, 'about': 1, 'education': 2, 'hobbies': 3, 'where-am-i': 4}
+    pages = {'index': 0, 'about': 1, 'education': 2, 'hobbies': 3, 'where_am_i': 4}
     anim = 'slideInRight' if pages[prev_page] < pages[curr_page] else 'slideInLeft'
     return f'animate__{anim}'
 
