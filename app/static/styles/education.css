@@ -9,42 +9,39 @@ ul.education-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2em;
 
   list-style: none;
 }
 
 li.education-item {
-  // displays
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 1em;
 
-  list-styl: none;
+  list-style: none;
 
-  padding-bottom: 1.5rem;
   border-left: 1px solid #abaaed;
   position: relative;
-  padding-left: 20px;
-  margin-left: 10px;
-  &:last-child {
-    border: 0px;
-    padding-bottom: 0;
-  }
-  &:before {
-    content: "";
-    width: 15px;
-    height: 15px;
-    background: white;
-    border: 1px solid #4e5ed3;
-    box-shadow: 3px 3px 0px #bab5f8;
-    border-radius: 50%;
-    position: absolute;
-    left: -10px;
-    top: 0px;
-  }
+  padding-bottom: 2em;
+  padding-left: 2em;
+  margin-left: 12px;
+}
+
+li.education-item:before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background: #e9ebec;
+  border: 1px solid #abaaed;
+  border-radius: 50%;
+  position: absolute;
+  left: -11px;
+  top: 0px;
+}
+
+li.education-item:last-child {
+  border: 0;
+  padding-bottom: 0;
 }
 
 .education-item > .school {
@@ -53,13 +50,9 @@ li.education-item {
   margin: 0;
 }
 
-.education-item > .school > .years {
-  font-size: 0.75em;
-  color: #9aaab9;
-  display: flex;
-  margin: 0;
-  padding: 0 1em;
-  align-items: center;
+.education-item > .years {
+  position: relative;
+  top: -1px;
 }
 
 .education-item > .degree {
