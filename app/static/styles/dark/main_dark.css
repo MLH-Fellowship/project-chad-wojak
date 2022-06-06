@@ -82,6 +82,6 @@ footer {
   text-align: center;
 }
 
-p {
+p, li {
   color: white;
 }
