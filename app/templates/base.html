@@ -82,13 +82,13 @@
       </div>
   </div>
   <div class="profile">
-      <div class="profile-picture {{ 'animate__animated animate__fadeinup' if initial }}">
+      <div class="profile-picture {{ 'animate__animated animate__fadeInUp' if initial }}">
           <img src="./static/img/logo.jpg" />
       </div>
       <div class="profile-description">
-          <h1 class="profile-name {{ 'animate__animated animate__fadeinup animate__delay-1s' if initial }}">{{ name }}</h1>
-          <p class="profile-position {{ 'animate__animated animate__fadeinup animate__delay-2s' if initial }}">{{ position }}</p>
-          <div class="socials {{ 'animate__animated animate__fadeinup animate__delay-3s' if initial }}">
+          <h1 class="profile-name {{ 'animate__animated animate__fadeInUp animate__delay-1s' if initial }}">{{ name }}</h1>
+          <p class="profile-position {{ 'animate__animated animate__fadeInUp animate__delay-2s' if initial }}">{{ position }}</p>
+          <div class="socials {{ 'animate__animated animate__fadeInUp animate__delay-3s' if initial }}">
           {% for social in socials %}
           <a class="socials-link" href="{{social.url}}" target="_blank">
             <img src="{{social.icon}}" alt="{{social.name}}" />
