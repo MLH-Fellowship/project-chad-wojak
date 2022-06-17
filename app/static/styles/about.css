@@ -5,9 +5,11 @@ h3 {
   font-size: calc(4vw + 4vh);
   letter-spacing: -0.2rem;
   margin: 50px 0 30px;
-  background: linear-gradient(45deg,
-      var(--primary-color) 32.5%,
-      var(--secondary-color) 50.5%);
+  background: linear-gradient(
+    45deg,
+    var(--primary-color) 32.5%,
+    var(--secondary-color) 50.5%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1em;
@@ -15,141 +17,42 @@ h3 {
 }
 h7 {
   --primary-color: #248c60;
-   --secondary-color: #1a9be6;
- font-weight: 800;
-   font-size: calc(4vw + 4vh);
-   letter-spacing: -0.2rem;
-   margin: 50px 100px 100px;
-   background: linear-gradient(
-       45deg,
-       var(--primary-color) 32.5%,
-       var(--secondary-color) 50.5%
-   );
-   -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;
-   line-height: 1em;
-   padding-bottom: 10px;
-   padding-top: 10px;
+  --secondary-color: #1a9be6;
+  font-weight: 800;
+  font-size: calc(4vw + 4vh);
+  letter-spacing: -0.2rem;
+  margin: 50px 100px 100px;
+  background: linear-gradient(
+    45deg,
+    var(--primary-color) 32.5%,
+    var(--secondary-color) 50.5%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1em;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
+
 p {
   text-align: center;
   font-style: italic;
-
 }
 
-div {
-  text-align: center;
-}
-
-h2 {
-  text-align: center;
-  animation: glitch 1s linear infinite;
-
-}
-
-.quote {
-  animation: fadeIn ease 2s linear infinite;
-}
-
-@import url('https://fonts.googleapis.com/css?family=Fira+Mono:400');
+@import url("https://fonts.googleapis.com/css?family=Fira+Mono:400");
 
 .quote {
   display: flex;
   height: 40vh;
   align-items: center;
-  justify-content: center;
   margin: 0;
   padding-left: 4em;
   padding-right: 4em;
   color: #3f37c9;
-  margin-bottom:4em;
+  margin-bottom: 4em;
   font-size: 32px;
-  font-family: 'Fira Mono', monospace;
+  font-family: "Fira Mono", monospace;
   letter-spacing: -1px;
   font-style: italic;
-}
-
-.quote {
-  animation: glitch 1s linear infinite;
-}
-
-.quote:before,
-.quote:after {
-  content: attr(title);
-  position: absolute;
-  left: 0;
-}
-
-.quote:before {
-  animation: glitchTop 1s linear infinite;
-  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
-}
-
-.quote:after {
-  animation: glitchBotom 1.5s linear infinite;
-  clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
-  -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
-}
-
-@keyframes glitchTop {
-
-  2%,
-  64% {
-    transform: translate(2px, -2px);
-  }
-
-  4%,
-  60% {
-    transform: translate(-2px, 2px);
-  }
-
-  62% {
-    transform: translate(13px, -1px) skew(-13deg);
-  }
-}
-
-
-@keyframes glitchBotom {
-
-  2%,
-  64% {
-    transform: translate(-2px, 0);
-  }
-
-  4%,
-  60% {
-    transform: translate(-2px, 0);
-  }
-
-  62% {
-    transform: translate(-22px, 5px) skew(21deg);
-  }
-}
-
-@keyframes glitch {
-
-  2%,
-  64% {
-    transform: translate(2px, 0) skew(0deg);
-  }
-
-  4%,
-  60% {
-    transform: translate(-2px, 0) skew(0deg);
-  }
-
-  62% {
-    transform: translate(0, 0) skew(5deg);
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+  text-align: center;
 }
