@@ -9,16 +9,16 @@ app = Flask(__name__)
 # Base content all pages need
 # used by the "profile" section of the template
 base_content = {
-    'name': 'MLH Fellow',
-    'position': 'Software Engineer',
+    'name': 'Joshua Ji',
+    'position': 'Aspiring Software Engineer',
     'url': os.getenv("URL"),
     'socials': [{
         'name': 'Github',
-        'url': 'https://github.com/MLH-Fellowship',
+        'url': 'https://github.com/joshuanianji',
         'icon': './static/img/social/github.svg'
     }, {
         'name': 'LinkedIn',
-        'url': 'https://www.linkedin.com/company/major-league-hacking/',
+        'url': 'https://www.linkedin.com/in/joshua-nian-ji/',
         'icon': './static/img/social/linkedin.svg'
     }]
 }
