@@ -9,7 +9,7 @@ app = Flask(__name__)
 # Base content all pages need
 # used by the "profile" section of the template
 base_content = {
-    'name': 'Jesus',
+    'name': '?',
     'position': 'Software Engineer',
     'url': os.getenv("URL"),
     'socials': [{
