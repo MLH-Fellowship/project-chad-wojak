@@ -8,5 +8,4 @@ pip install -r requirements.txt
 tmux new-session -d -s flask
 tmux send-keys -t flask 'source python3-virtualenv/bin/activate' C-m
 tmux send-keys -t flask 'export FLASK_ENV=development' C-m
-tmux send-keys -t flask 'flask run --host=0.0.0.0' C-m
-~                                                                    
+tmux send-keys -t flask 'flask run --host=0.0.0.0' C-m                                                            
