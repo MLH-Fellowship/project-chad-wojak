@@ -1,6 +1,7 @@
 from email.policy import default
 import os
 from typing import Any
+from urllib import response
 from flask import Flask, make_response, render_template, request, redirect, url_for
 from dotenv import load_dotenv
 from peewee import *
@@ -28,6 +29,7 @@ class TimelinePost(Model):
 
     class Meta:
         database = mydb
+
 mydb.connect()
 mydb.create_tables([TimelinePost])
 
@@ -48,20 +50,12 @@ base_content = {
     }]
 }
 
-
-@app.route('/')
-def index():
-    # no extra content needed
-    # title and active_tab handled by `handle_route`
-    return handle_route('Home', 'index', base_content)
-
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
     name = request.form['name']
     email = request.form['email']
     content = request.form['content']
     timeline_post = TimelinePost.create(name=name, email=email, content=content)
-
     return model_to_dict(timeline_post)
 
 @app.route('/api/timeline_post', methods=['GET'])
@@ -74,19 +68,36 @@ def get_time_line_post():
         ]
     }
 
+@app.route('/')
+def index():
+    # no extra content needed
+    # title and active_tab handled by `handle_route`
+    return handle_route('Home', 'index', base_content)
+
+@app.route('/timeline')
+def timeline():
+        content = {
+            **base_content,
+            'timeline_posts' : [ #get the new timeline
+                model_to_dict(p)
+                for p in
+                TimelinePost.select().order_by(TimelinePost.created_at.desc())
+            ]
+        }
+        return handle_route('Timeline', 'timeline', content)
 
 @app.route('/about')
 def about():
-    content = {
+    motif = {
         **base_content,
         'quote': 'Only one who devotes himself to a cause with his whole strength and soul can be a true master. For this reason mastery demands all of a person.',
         'author': 'Albert Einstein',
     }
-    return handle_route('About', 'about', content)
+    return handle_route('About', 'about', motif)
 
 @app.route('/work')
 def work():
-    content = {
+    motif = {
         **base_content,
         'jobs': [{
             'name': 'Theoretical physicist',
@@ -100,11 +111,11 @@ def work():
             'description' : 'Today I walked down a street where many computer programmers live. The houses were numbered 64k, 128k, 256k, 512k and 1MB. For some reason it felt like a trip down memory lane.'
         }]
     }
-    return handle_route('Work Experiences', 'work', content)
+    return handle_route('Work Experiences', 'work', motif)
 
 @app.route('/education')
 def education():
-    content = {
+    motif = {
         **base_content,
         'educations': [{
             'school': 'Meta University',
@@ -117,12 +128,12 @@ def education():
             'years': '2016 - 2020'
         }]
     }
-    return handle_route('Education', 'education', content)
+    return handle_route('Education', 'education', motif)
 
 
 @app.route('/hobbies')
 def hobbies():
-    content = {
+    motif = {
         'title': 'Hobbies - Portfolio',
         'active_tab': 'hobbies',
         'hobbies': [
@@ -163,12 +174,12 @@ def hobbies():
         ],
         **base_content
     }
-    return handle_route('Hobbies', 'hobbies', content)
+    return handle_route('Hobbies', 'hobbies', motif)
 
 
 @app.route('/where_am_i')
 def where_am_i():
-    content = {
+    motif = {
         **base_content,
         'places': [{
             'name': 'San Francisco',
@@ -189,10 +200,10 @@ def where_am_i():
         }],
         **base_content
     }
-    return handle_route('Where am I', 'where_am_i', content)
+    return handle_route('Where am I', 'where_am_i', motif)
 
 
-def handle_route(name: str, id: str, content):
+def handle_route(name: str, id: str, motif):
     '''
     Handles routing logic for each page
 
@@ -201,31 +212,32 @@ def handle_route(name: str, id: str, content):
         id: unique id for the page
         content: extra content to pass to the template
     '''
-    content = {
-        **content,
+    motif = {
+        **motif,
         'title': f'{name} - Portfolio',
         'active_tab': id,
     }
+
     # check prev_page cookie to see what animations we have to do
     prev_page = request.cookies.get('prev_page', None, type=str)
     print(f'prev_page for {id}: {prev_page}')
     if prev_page is None or prev_page == id:
         # This is an initial page load (user first navigates, or refreshes)
         # `initial` is used by the template to know to play the fadein animations
-        content = {
-            **content,
+        motif = {
+            **motif,
             'initial': True,
         }
     else:
         # This is not an initial page load, so set a slide animation for the content
-        content = {
-            **content,
+        motif = {
+            **motif,
             'initial': False,
             'content_slide_animation': get_animation(prev_page, id)
         }
     # set the prev_page cookie to the `id`, 
     # so the next link will know what page transition to do
-    resp = make_response(render_template(f'{id}.html', **content))
+    resp = make_response(render_template(f'{id}.html', **motif))
     resp.set_cookie('prev_page', id)
     return resp
 
@@ -233,7 +245,7 @@ def handle_route(name: str, id: str, content):
 # from the two pages, gets the animate.css animation to play
 # either a `animate__slideInLeft` or `animate__slideInRight`
 def get_animation(prev_page: str, curr_page: str) -> str:
-    pages = {'index': 0, 'about': 1, 'work': 2, 'education': 3, 'hobbies': 4, 'where_am_i': 5}
+    pages = {'index': 0, 'about': 1, 'work': 2, 'education': 3, 'hobbies': 4, 'where_am_i': 5, 'timeline':6}
     anim = 'slideInRight' if pages[prev_page] < pages[curr_page] else 'slideInLeft'
     return f'animate__{anim}'
 
