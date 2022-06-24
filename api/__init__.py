@@ -196,27 +196,38 @@ def handle_route(name: str, id: str, content):
         'title': f'{name} - Portfolio',
         'active_tab': id,
     }
+    animations = request.cookies.get('animations', 'true', type=str)
+    print('animations:', animations)
     # check prev_page cookie to see what animations we have to do
     prev_page = request.cookies.get('prev_page', None, type=str)
     print(f'prev_page for {id}: {prev_page}')
-    if prev_page is None or prev_page == id:
+
+    if animations == 'false':
+        content = {
+            **content,
+            'animations': False,
+        }
+    elif prev_page is None or prev_page == id:
         # This is an initial page load (user first navigates, or refreshes)
         # `initial` is used by the template to know to play the fadein animations
         content = {
             **content,
             'initial': True,
+            'animations': True
         }
     else:
         # This is not an initial page load, so set a slide animation for the content
         content = {
             **content,
             'initial': False,
+            'animations': True,
             'content_slide_animation': get_animation(prev_page, id)
         }
     # set the prev_page cookie to the `id`, 
     # so the next link will know what page transition to do
     resp = make_response(render_template(f'{id}.html', **content))
     resp.set_cookie('prev_page', id)
+    resp.set_cookie('animations', 'true')
     return resp
 
 
@@ -255,6 +266,7 @@ def post_timeline_post():
 @app.route('/api/timeline_post/<int:id>', methods=['DELETE'])
 def delete_timeline_post(id):
     TimelinePost.delete_by_id(id)
+    print(f'deleted timeline post {id}')
     return 'Success!'
 
 

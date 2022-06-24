@@ -18,8 +18,27 @@ it #}
       fetch("/api/timeline_post", {
         method: "POST",
         body: payload,
-      }).then((data) => location.reload());
+      }).then((data) => {
+        noAnim();
+        location.reload();
+      });
     });
+  };
+
+  const deletePost = (id) => {
+    console.log("Deleting post with id: " + id);
+    fetch("/api/timeline_post/" + id, {
+      method: "DELETE",
+    }).then((data) => {
+      noAnim();
+      location.reload();
+    });
+  };
+
+  const noAnim = () => {
+    // https://stackoverflow.com/a/28607957
+    document.cookie = "animations=false";
+    console.log(document.cookie);
   };
 </script>
 {% endblock %}
@@ -43,6 +62,9 @@ it #}
       <h4 class="email">{{ timeline.email }}</h4>
       <p class="content">{{ timeline.content }}</p>
       <p class="createdAt">{{ timeline.createdAt }}</p>
+      <button class="delete" onclick="deletePost({{ timeline.id }})">
+        Delete
+      </button>
     </li>
     {% endfor %}
   </ul>
