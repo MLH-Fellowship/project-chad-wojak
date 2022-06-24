@@ -14,7 +14,7 @@ it #}
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       const payload = new FormData(form);
-      console.log([...payload]);
+      console.log("Sending data...");
       fetch("/api/timeline_post", {
         method: "POST",
         body: payload,
@@ -54,20 +54,19 @@ it #}
   <input type="text" id="content" name="content" value="" />
   <input type="submit" value="Submit" />
   <br />
-
-  <ul class="timeline-wrapper">
-    {% for timeline in timeline_posts %}
-    <li class="timeline-item">
-      <div class="name">{{ timeline.name }}</div>
-      <h4 class="email">{{ timeline.email }}</h4>
-      <p class="content">{{ timeline.content }}</p>
-      <p class="createdAt">{{ timeline.createdAt }}</p>
-      <button class="delete" onclick="deletePost({{ timeline.id }})">
-        Delete
-      </button>
-    </li>
-    {% endfor %}
-  </ul>
 </form>
 
+<ul class="timeline-wrapper">
+  {% for timeline in timeline_posts %}
+  <li class="timeline-item">
+    <div class="name">{{ timeline.name }}</div>
+    <h4 class="email">{{ timeline.email }}</h4>
+    <p class="content">{{ timeline.content }}</p>
+    <p class="createdAt">{{ timeline.createdAt }}</p>
+    <button class="delete" onclick="deletePost({{ timeline.id }})">
+      Delete
+    </button>
+  </li>
+  {% endfor %}
+</ul>
 {% endblock %}

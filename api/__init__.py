@@ -265,8 +265,8 @@ def post_timeline_post():
 
 @app.route('/api/timeline_post/<int:id>', methods=['DELETE'])
 def delete_timeline_post(id):
-    TimelinePost.delete_by_id(id)
-    print(f'deleted timeline post {id}')
+    n = TimelinePost.delete_by_id(id)
+    print(f'deleted {n} rows')
     return 'Success!'
 
 
