@@ -32,7 +32,8 @@
             "work": 1,
             "education": 2,
             "hobbies": 3,
-            "where_am_i": 4
+            "where_am_i": 4,
+            "timeline": 5,
         };
         // this function returns an event handler
         const animateOut = (node, currPage, nextPage, e) => {
@@ -105,6 +106,7 @@
         <a class="nav-item {{'active' if active_tab == 'education' }}" onclick="animateOut(this, '{{ active_tab }}', 'education', event)" href="/education">Education</a>
         <a class="nav-item {{'active' if active_tab == 'hobbies' }}" onclick="animateOut(this, '{{ active_tab }}', 'hobbies', event)" href="/hobbies">Hobbies</a >
         <a class="nav-item {{'active' if active_tab == 'where_am_i' }}" onclick="animateOut(this, '{{ active_tab }}', 'where_am_i', event)" href="/where_am_i">Where Am I?</a>
+        <a class="nav-item {{'active' if active_tab == 'timeline' }}" onclick="animateOut(this, '{{ active_tab }}', 'timeline', event)" href="/timeline">Timeline</a>
       </div>
     </div>
     <div

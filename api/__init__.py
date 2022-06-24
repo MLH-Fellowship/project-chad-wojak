@@ -104,6 +104,7 @@ def education():
 @app.route('/hobbies')
 def hobbies():
     content = {
+        **base_content,
         'title': 'Hobbies - Portfolio',
         'active_tab': 'hobbies',
         'hobbies': [
@@ -141,8 +142,7 @@ def hobbies():
                         "exploring new routes every weekend and getting new PRs on my Strava. "
             }
 
-        ],
-        **base_content
+        ]
     }
     return handle_route('Hobbies', 'hobbies', content)
 
@@ -168,9 +168,18 @@ def where_am_i():
             'description': 'Unincorporated territory of the United States',
             'coords': [18, -66]
         }],
-        **base_content
     }
     return handle_route('Where am I', 'where_am_i', content)
+
+@app.route('/timeline')
+def timeline():
+    content = {
+        **base_content,
+        'timeline_posts': [
+            model_to_dict(p) for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
+        ]
+    }
+    return handle_route('Timeline', 'timeline', content)
 
 
 def handle_route(name: str, id: str, content):
@@ -214,7 +223,7 @@ def handle_route(name: str, id: str, content):
 # from the two pages, gets the animate.css animation to play
 # either a `animate__slideInLeft` or `animate__slideInRight`
 def get_animation(prev_page: str, curr_page: str) -> str:
-    pages = {'index': 0, 'about': 1, 'work': 2, 'education': 3, 'hobbies': 4, 'where_am_i': 5}
+    pages = {'index': 0, 'about': 1, 'work': 2, 'education': 3, 'hobbies': 4, 'where_am_i': 5, 'timeline': 6}
     anim = 'slideInRight' if pages[prev_page] < pages[curr_page] else 'slideInLeft'
     return f'animate__{anim}'
 

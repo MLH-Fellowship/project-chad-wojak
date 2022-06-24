@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+<!-- Imports -->
+{% block imports %}
+<link lang="css" rel="stylesheet" href="./static/styles/timeline.css" />
+
+{# since we need to use template vars, we cannot make a new JS file and import
+it #}
+
+<script>
+  window.onload = () => {
+    const form = document.getElementById("form");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const payload = new FormData(form);
+      console.log([...payload]);
+      fetch("/api/timeline_post", {
+        method: "POST",
+        body: payload,
+      }).then((data) => location.reload());
+    });
+  };
+</script>
+{% endblock %}
+
+<!-- Add content here -->
+{% block content %}
+<form method="post" id="form" class="form">
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" value="" />
+  <label for="email">Email:</label>
+  <input type="text" id="email" name="email" value="" />
+  <label for="content">Content:</label>
+  <input type="text" id="content" name="content" value="" />
+  <input type="submit" value="Submit" />
+  <br />
+
+  <ul class="timeline-wrapper">
+    {% for timeline in timeline_posts %}
+    <li class="timeline-item">
+      <div class="name">{{ timeline.name }}</div>
+      <h4 class="email">{{ timeline.email }}</h4>
+      <p class="content">{{ timeline.content }}</p>
+      <p class="createdAt">{{ timeline.createdAt }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+</form>
+
+{% endblock %}
