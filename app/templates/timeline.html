@@ -2,19 +2,15 @@
 
 <!-- Imports -->
 {% block imports %} 
-{% set theme = request.cookies.get("theme") %} 
-{% if theme == 'light' or not theme %}
-    <link lang="css" rel="stylesheet" href="./static/styles/light/timeline.css" />
-{% else %}
-<link lang="css" rel="stylesheet" href="./static/styles/dark/timeline_dark.css" />
-{% endif %} {% endblock %}
+<link lang="css" rel="stylesheet" href="./static/styles/timeline.css" />
+{% endblock %}
 
 <!-- Add content here -->
 {% block content %}
 <h3 class="content-title">Timeline</h3>
 
 <ul class="timeline-wrapper">
-    <form name="form" id="form">
+    <form id="form">
         <h3>Username : </h3>
         <input name="name" type="text">
         <h3>Email : </h3>
@@ -46,47 +42,9 @@
 <h1>Reply: </h1>
 
 {% for timeline_post in timeline_posts %}
-    <p >{{ timeline_post.name }}</p>
-    <p >{{ timeline_post.email }}</p>
-    <p >{{ timeline_post.content }}</p>
+    <h1>{{ timeline_post.name }}</h1>
+    <p>{{ timeline_post.email }}</p>
+    <p>{{ timeline_post.content }}</p>
 {% endfor %}
 
- <script>
-//    fetch('/api/timeline_post')
-//        .then(res => res.json())
-//        .then(data => {
-//            console.log(data);
-//            let user = data;
-//             
-// 
-//            const name = document.createElement('p');
-//            const email = document.createElement('p');
-//            const content = document.createElement('p');
-//
-//            name.innerHTML = `${user.name}`;
-//            email.innerHTML = `${user.email}`;
-//            content.innerHTML = `${user.content}`;
-//        })
-
-
-//location.reload();
-//        context.map(function(stuff){
-//            let li = document.createElement('li');
-//            let name = document.createElement('h2');
-//            let email = document.createElement('h3');
-//            let content = document.createElement('p');
-//
-//            name.innerHTML = `${context.name}`;
-//            email.innerHTML = `${context.email}`;
-//            content.innerHTML = `${context.content}`;
-//
-//            li.appendChild(name);
-//            li.appendChild(email);
-//            li.appendChild(content);
-//            list.appendChild(li);
-
-//        });
-//    })
-//    })
- </script>
 {% endblock %}

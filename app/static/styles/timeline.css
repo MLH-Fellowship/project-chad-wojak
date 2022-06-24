@@ -7,3 +7,13 @@ p {
     display: flex;
     justify-content: center;
 }
+
+#submitBtn {
+    padding-left:1em;
+    padding-right:1em;
+    background-color: #008CBA;
+}
+
+h1 {
+    padding-top:1em;
+}
