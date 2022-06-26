@@ -2,9 +2,36 @@ import os
 from typing import Any
 from flask import Flask, make_response, render_template, request, redirect, url_for
 from dotenv import load_dotenv
+from peewee import *
+import datetime
+from playhouse.shortcuts import model_to_dict
 
 load_dotenv()
 app = Flask(__name__)
+
+
+
+
+mydb=MySQLDatabase(os.getenv("MYSQL_DATABASE"),
+              user=os.getenv("MYSQL_USER"),
+              password=os.getenv("MYSQL_PASSWORD"),
+              host=os.getenv("MYSQL_HOST"),
+              port=3306
+              )
+print(mydb)
+
+class TimelinePost(Model):
+    name = CharField()
+    email = CharField()
+    content = TextField()
+    created_at = DateTimeField(default=datetime.datetime.now)
+
+    class Meta:
+        database = mydb
+
+mydb.connect()
+mydb.create_tables([TimelinePost])
+
 
 # Base content all pages need
 # used by the "profile" section of the template
@@ -147,6 +174,29 @@ def where_am_i():
     }
     return handle_route('Where am I', 'where_am_i', content)
 
+@app.route('/api/timeline_post', methods=['POST'])
+def post_time_line_post():
+    name = request.form['name']
+    email = request.form['email']
+    content = request.form['content']
+    timeline_post = TimelinePost.create(name=name, email=email, content=content)
+
+    return model_to_dict(timeline_post)
+
+@app.route('/api/timeline_post', methods=['GET'])
+def get_time_line_post():
+    return{'timeline_posts':[model_to_dict(p) for p in
+                             TimelinePost.select().order_by(TimelinePost.created_at.desc())]
+           }
+
+@app.route('/api/timeline_post', methods=['DELETE'])
+def delete_time_line_post():
+    if len(TimelinePost.select().order_by(TimelinePost.created_at.desc())) == 0:
+        return "There are none to be deleted\n"
+    last = TimelinePost.select().order_by(TimelinePost.created_at.desc())[-1]
+    TimelinePost.select().order_by(TimelinePost.created_at.desc())[-1].delete_instance()
+    return "deleted post made by " + last.name + "\n" 
+           
 
 def handle_route(name: str, id: str, content):
     '''
