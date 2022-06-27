@@ -174,6 +174,16 @@ def where_am_i():
     }
     return handle_route('Where am I', 'where_am_i', content)
 
+@app.route('/timeline')
+def timeline():
+    content = {
+        **base_content,
+        'timeline_posts': [
+            model_to_dict(p) for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
+        ]
+    }
+    return render_template('timeline.html', title="Timeline", **content)
+
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
     name = request.form['name']
