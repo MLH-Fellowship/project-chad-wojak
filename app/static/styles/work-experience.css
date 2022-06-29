@@ -5,11 +5,9 @@ h3.content-title-work {
   font-size: calc(4vw + 4vh);
   letter-spacing: -0.2rem;
   margin: 50px 0 30px;
-  background: linear-gradient(
-    45deg,
-    var(--primary-color) 32.5%,
-    var(--secondary-color) 50.5%
-  );
+  background: linear-gradient(45deg,
+      var(--primary-color) 32.5%,
+      var(--secondary-color) 50.5%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1em;
@@ -24,4 +22,11 @@ h3.content-title-work {
   text-align: center;
   margin: 0 2em;
   width: 100%;
+}
+
+#descriptionJob {
+  margin-left: 11em;
+  margin-right: 14em;
+  margin-top: 0;
+  margin-bottom: 0;
 }

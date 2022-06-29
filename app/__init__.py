@@ -41,12 +41,16 @@ base_content = {
     'url': os.getenv("URL"),
     'socials': [{
         'name': 'Github',
-        'url': 'https://github.com/MLH-Fellowship',
+        'url': 'https://github.com/CarrieKam',
         'icon': './static/img/social/github.svg'
     }, {
         'name': 'LinkedIn',
-        'url': 'https://www.linkedin.com/company/major-league-hacking/',
+        'url': 'https://www.linkedin.com/in/carrie-kam-1837b3193/',
         'icon': './static/img/social/linkedin.svg'
+    },{
+        'name':'Email',
+        'url':'mailto:carriekam@protonmail.com',
+        'icon':'./static/img/social/mail.png'
     }]
 }
 
