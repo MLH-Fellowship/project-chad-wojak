@@ -36,8 +36,8 @@ mydb.create_tables([TimelinePost])
 # Base content all pages need
 # used by the "profile" section of the template
 base_content = {
-    'name': '?',
-    'position': 'Software Engineer',
+    'name': 'Carrie Kam',
+    'position': 'Software Engineer Student',
     'url': os.getenv("URL"),
     'socials': [{
         'name': 'Github',
@@ -118,14 +118,17 @@ def education():
     motif = {
         **base_content,
         'educations': [{
-            'school': 'Meta University',
-            'degree': 'Bachelor of Science',
-            'major': 'Zucc Sciences',
-            'years': '2020 - Present'
+            'school': 'Polytechnique de Montreal',
+            'degree': 'Bachelor of Software Engineering',
+            'years': 'Winter 2021 - Present'
         }, {
-            'school': 'Atlantis High School',
-            'degree': 'High School Diploma',
-            'years': '2016 - 2020'
+            'school': 'Polytechnique de Montreal',
+            'degree': 'Bachelor in Electrical Engineering',
+            'years': 'Winter 2020 - Fall 2020'
+        },{
+            'school': 'College Maisonneuve',
+            'degree': 'DEC in Computer Science and Mathematics ',
+            'years': 'Fall 2017 - Winter 2020'
         }]
     }
     return handle_route('Education', 'education', motif)

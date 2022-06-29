@@ -9,9 +9,10 @@ p {
 }
 
 #submitBtn {
-    padding-left:1em;
-    padding-right:1em;
-    background-color: #008CBA;
+    margin-top: 1em;
+    padding:0.5em;
+    border-radius: 20px;
+    background-color: #c565f8;
 }
 
 h1 {
