@@ -145,8 +145,8 @@ def hobbies():
         'active_tab': 'hobbies',
         'hobbies': [
             {
-                'name': 'Badminton',
-                'img': 'https://cdn.shopify.com/s/files/1/0020/9407/1890/files/2_480x480.jpg?v'
+                'name': 'Violin',
+                'img': 'https://images.unsplash.com/photo-1460036521480-ff49c08c2781?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=873&q=80'
                        '=1559302854',
                 'desc': "I've been playing badminton ever since I was a little kid. I've played "
                         "at all collegiate levels and have multiple competitive accomplishments "
