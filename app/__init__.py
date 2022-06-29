@@ -146,35 +146,26 @@ def hobbies():
         'hobbies': [
             {
                 'name': 'Violin',
-                'img': 'https://images.unsplash.com/photo-1460036521480-ff49c08c2781?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=873&q=80'
-                       '=1559302854',
+                'img': 'https://images.unsplash.com/photo-1460036521480-ff49c08c2781?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=873&q=80',
                 'desc': "I've been playing playing ever since I started secondary school. "
                         "Every year we had to do two concerts. We also assisted to a contest where we won gold."
             },
             {
-                'name': 'Chess',
-                'img': 'https://images.ctfassets.net/3s5io6mnxfqz/wfAz3zUBbrcf1eSMLZi8u'
-                       '/c03ac28c778813bd72373644ee8b8b02/AdobeStock_364059453.jpeg?fm=jpg&w=900'
-                       '&fl=progressive',
-                'desc': "I've been playing chess since I was a little kid. I've played at all "
-                        "collegiate levels and have multiple competitve accomplishments in the "
-                        "sport."
+                'name': 'Gaming',
+                'img': 'https://images.unsplash.com/photo-1537963447914-dbc04b81de27?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=812&q=80',
+                'desc': "I like escape games, like Tiny Room Stories: Town Mystery. Time flies very fast when playing this kind of game while "
+                        "there is nothing to do in the subway. I also like Genshin Impact for the wonderful landscape and game play"
             },
             {
-                'name': 'Bouldering',
-                'img': 'https://a2cf4fa39d1096849525-c9e74d9e365a688b9dfb3e01b6ac4867.ssl.cf5'
-                       '.rackcdn.com/cloud_images/Climber-at-bouldering-gym.jpg',
-                'desc': "One of my favorite pastimes is bouldering. It's a great way to exercise "
-                        "while solving problems with other people. I plan on bouldering even more "
-                        "next year. "
+                'name': 'Attending Hackathons',
+                'img': 'https://images.unsplash.com/photo-1640163561346-7778a2edf353?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+                'desc': "I like to meet new people. While doing awesome projects, it also pushes me to learn more than in school curriculum. "
             },
             {
-                'name': 'Cycling',
-                'img': 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mff-roka'
-                       '-0618-1-preview-maxwidth-3000-maxheight-3000-ppi-300-quality-90'
-                       '-1620433208.jpg?crop=1.00xw:0.750xh;0,0.190xh&resize=1200:*',
-                'desc': "I'm an amateur cyclist and part of my local cycling club. I enjoy "
-                        "exploring new routes every weekend and getting new PRs on my Strava. "
+                'name': 'Baking',
+                'img': 'https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+                'desc': "I feel like the moment I am baking, I don't think other stuff and can focus in one thing."
+                        " I enjoy the moment while making it and try to make it better for the next time."
             }
 
         ],
