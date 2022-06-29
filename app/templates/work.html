@@ -11,15 +11,15 @@
 <div>
     <h3 class="content-title-work">Work Experience</h3> 
     {% for job in jobs %}
-    <div class="job-item">
-        <script>randomColors()</script>
-        <h1> Job Title: {{job.name}} </h1>
-        <p> Location : {{job.location}}</p>
-        <p> Phone : {{job.contact}}</p>
-        <p id="descriptionJob"> {{job.description}}</p>
-    </div>
-    ________________________________________________________________________________________________________________________________________
+        <div class="job-item">
+            <script>randomColors()</script>
+            <h1> Job Title: {{job.name}} </h1>
+            <p> Location : {{job.location}}</p>
+            <p> Phone : {{job.contact}}</p>
+            <p id="descriptionJob"> {{job.description}}</p>
+        </div>________________________________________________________________________________________________________________________________________
     {% endfor %} 
 </div> 
+<h1>YES, I've never worked before....but here is some projects that I did!</h1>
 
 {% endblock %}

@@ -122,10 +122,14 @@ def education():
     motif = {
         **base_content,
         'educations': [{
+            'school': 'MLH Fellowship',
+            'degree': 'Production Engineering',
+            'years': 'Summer 2022 - Present'
+        },{
             'school': 'Polytechnique de Montreal',
             'degree': 'Bachelor of Software Engineering',
             'years': 'Winter 2021 - Present'
-        }, {
+        },{
             'school': 'Polytechnique de Montreal',
             'degree': 'Bachelor in Electrical Engineering',
             'years': 'Winter 2020 - Fall 2020'
@@ -202,6 +206,10 @@ def where_am_i():
             'name': 'GuangDong',
             'description': 'Go food and very fun',
             'coords': [22.7739896,111.2470326]
+        },{
+            'name': 'Suzhou',
+            'description': 'A lot of old buildings',
+            'coords': [31.3280439,120.3641069]
         }],
         **base_content
     }
