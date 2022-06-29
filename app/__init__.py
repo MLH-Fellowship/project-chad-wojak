@@ -186,32 +186,32 @@ def hobbies():
 
 @app.route('/where_am_i')
 def where_am_i():
-    #  <ul>
-    #    <li>Vancouver, Canada</li>
-    #    <li>Seattle, USA</li>
-    #    <li>Guayaquil, Ecuador</li>
-    #    <li>Shanghai, China</li>
-    #    <li>GuangDong, China</li>
-    #    <li>etc...</li>
-    #   </ul>
     motif = {
         **base_content,
         'places': [{
             'name': 'Montreal',
             'description': 'I am currently living in Quebec, Canada',
-            'coords': [37.75, -122.4]
+            'coords': [45.5579564,-73.8703871]
         }, {
-            'name': 'Edmonton',
-            'description': 'Capital of the texas of Canada',
-            'coords': [53, -113]
+            'name': 'Vancouver',
+            'description': 'I went there for a very short time when I was small',
+            'coords': [49.2573967,-123.4040887]
         },{
             'name': 'Seattle',
             'description': 'The seat of King County, Washington',
             'coords': [47, -120]
         },{
-            'name': 'San Juan',
-            'description': 'Unincorporated territory of the United States',
-            'coords': [18, -66]
+            'name': 'Guayaquil',
+            'description': 'I went there to see family and visited beaches',
+            'coords': [-2.1524948,-80.1201895]
+        },{
+            'name': 'Shanghai',
+            'description': 'I went there almost every summer (very humid and hot during summer)',
+            'coords': [31.2231337,120.9162723]
+        },{
+            'name': 'GuangDong',
+            'description': 'Go food and very fun',
+            'coords': [22.7739896,111.2470326]
         }],
         **base_content
     }
