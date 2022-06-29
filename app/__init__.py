@@ -186,11 +186,19 @@ def hobbies():
 
 @app.route('/where_am_i')
 def where_am_i():
+    #  <ul>
+    #    <li>Vancouver, Canada</li>
+    #    <li>Seattle, USA</li>
+    #    <li>Guayaquil, Ecuador</li>
+    #    <li>Shanghai, China</li>
+    #    <li>GuangDong, China</li>
+    #    <li>etc...</li>
+    #   </ul>
     motif = {
         **base_content,
         'places': [{
-            'name': 'San Francisco',
-            'description': 'I am currently living in San Francisco, California (lie)',
+            'name': 'Montreal',
+            'description': 'I am currently living in Quebec, Canada',
             'coords': [37.75, -122.4]
         }, {
             'name': 'Edmonton',
