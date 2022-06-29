@@ -148,9 +148,8 @@ def hobbies():
                 'name': 'Violin',
                 'img': 'https://images.unsplash.com/photo-1460036521480-ff49c08c2781?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=873&q=80'
                        '=1559302854',
-                'desc': "I've been playing badminton ever since I was a little kid. I've played "
-                        "at all collegiate levels and have multiple competitive accomplishments "
-                        "in the sport. "
+                'desc': "I've been playing playing ever since I started secondary school. "
+                        "Every year we had to do two concerts. We also assisted to a contest where we won gold."
             },
             {
                 'name': 'Chess',
